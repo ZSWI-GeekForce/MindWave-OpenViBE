@@ -23,7 +23,7 @@ namespace OpenViBEVRDemos
 	public:
 
 		std::list < std::pair < int, int > > m_vButton; //!< list (chronological) of pairs (button_id, button_state).
-		std::list < std::list < double > > m_vAnalog;   //!< list (chronological) of list (channels) of values.
+		//std::list < std::list < double > > m_vAnalog;   //!< list (chronological) of list (channels) of values.
 		double m_dAnalogScale;                          //!< Scalar applied to any value read on the Analog server.
 		double m_dAnalogOffset;                         //!< Offset applied to any value read on the Analog server.
 		int blink_count;

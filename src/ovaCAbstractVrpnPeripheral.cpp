@@ -1,8 +1,6 @@
-#include "ovaCAbstractVrpnPeripheral.h"
 #include "stdafx.h"
+#include "ovaCAbstractVrpnPeripheral.h"
 #include <iostream>
-#include <vrpn_Analog.h>
-#include <vrpn_Tracker.h>
 #include <vrpn_Button.h>
 
 using namespace OpenViBEVRDemos;
@@ -13,7 +11,7 @@ public:
 
 	std::string m_sAddress;
 	vrpn_Button_Remote* m_pButton;
-	vrpn_Analog_Remote* m_pAnalog;
+	//vrpn_Analog_Remote* m_pAnalog;
 };
 
 namespace
@@ -29,7 +27,7 @@ namespace
 		l_pAbstractVrpnPeripheral->m_vButton.push_back(l_oVrpnButtonState);
 	}
 
-	void VRPN_CALLBACK handle_analog(void* pUserData, const vrpn_ANALOGCB a)
+	/*void VRPN_CALLBACK handle_analog(void* pUserData, const vrpn_ANALOGCB a)
 	{
 		CAbstractVrpnPeripheral* l_pAbstractVrpnPeripheral=(CAbstractVrpnPeripheral *)pUserData;
 
@@ -41,7 +39,7 @@ namespace
 		}
 
 		l_pAbstractVrpnPeripheral->m_vAnalog.push_back(l_oVrpnAnalogState);
-	}
+	}*/
 }
 
 CAbstractVrpnPeripheral::CAbstractVrpnPeripheral(void)
@@ -68,17 +66,17 @@ void CAbstractVrpnPeripheral::init(void)
 {
 	m_pDevice=new CDeviceInfo;
 	m_pDevice->m_sAddress=m_sDeviceAddress;
-	m_pDevice->m_pAnalog=new vrpn_Analog_Remote(m_sDeviceAddress.c_str());
+	//m_pDevice->m_pAnalog=new vrpn_Analog_Remote(m_sDeviceAddress.c_str());
 	m_pDevice->m_pButton=new vrpn_Button_Remote(m_sDeviceAddress.c_str());
 
 	m_pDevice->m_pButton->register_change_handler(this, &handle_button);
-	m_pDevice->m_pAnalog->register_change_handler(this, &handle_analog);
+	//m_pDevice->m_pAnalog->register_change_handler(this, &handle_analog);
 }
 
 void CAbstractVrpnPeripheral::loop(void)
 {
 	m_pDevice->m_pButton->mainloop();
-	m_pDevice->m_pAnalog->mainloop();
+	//m_pDevice->m_pAnalog->mainloop();
 }
 
 

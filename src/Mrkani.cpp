@@ -3,7 +3,6 @@
 
 #include "stdafx.h"
 #include "ovaCAbstractVrpnPeripheral.h"
-#include <OIS.h>
 #include <Windows.h>
 
 using namespace OpenViBEVRDemos;
