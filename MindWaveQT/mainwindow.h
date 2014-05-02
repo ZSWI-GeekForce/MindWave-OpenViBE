@@ -17,6 +17,7 @@ public:
     ~MainWindow();
     void setLabelText(QString string);
     void drawPicture(QPixmap picture);
+    void playMovie(void);
     void playMovie(QMovie *movie);
     void print(QString string);
 

@@ -37,6 +37,10 @@ void MainWindow::drawPicture(QPixmap picture){
     }
 }
 
+void MainWindow::playMovie(){
+    playMovie(animation);
+}
+
 void MainWindow::playMovie(QMovie *movie){
     if(!movie->isValid()) ui->label->setText("None animation");
     else{

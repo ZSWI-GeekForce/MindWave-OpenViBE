@@ -19,7 +19,8 @@ namespace
 	void VRPN_CALLBACK handle_button(void* pUserData, const vrpn_BUTTONCB b)
 	{
 		CAbstractVrpnPeripheral* l_pAbstractVrpnPeripheral=(CAbstractVrpnPeripheral *)pUserData;
-		std::cout << (*l_pAbstractVrpnPeripheral).blink_count << ". mrk" << std::endl;
+        //std::cout << (*l_pAbstractVrpnPeripheral).blink_count << ". mrk" << std::endl;
+        l_pAbstractVrpnPeripheral->print(l_pAbstractVrpnPeripheral->blink_count + " .mrk");
 		std::pair < int, int > l_oVrpnButtonState;
 		l_oVrpnButtonState.first=b.button;
 		l_oVrpnButtonState.second=b.state;
@@ -58,6 +59,16 @@ CAbstractVrpnPeripheral::CAbstractVrpnPeripheral(const std::string serverName)
 	m_sDeviceAddress = serverName;
 }
 
+CAbstractVrpnPeripheral::CAbstractVrpnPeripheral(MainWindow *w)
+{
+    blink_count = 0;
+    m_dAnalogScale=1;
+    m_dAnalogOffset=0;
+    m_sDeviceAddress = "openvibe-vrpn@localhost";
+    window = w;
+    //window->print("CAbstractVrpnPeripheral was created");
+}
+
 CAbstractVrpnPeripheral::~CAbstractVrpnPeripheral(void)
 {
 }
@@ -75,8 +86,17 @@ void CAbstractVrpnPeripheral::init(void)
 
 void CAbstractVrpnPeripheral::loop(void)
 {
+    window->print("->loop()");
 	m_pDevice->m_pButton->mainloop();
     //m_pDevice->m_pAnalog->mainloop();
 }
 
+void CAbstractVrpnPeripheral::print(QString string)
+{
+    window->print(string);
+}
 
+void CAbstractVrpnPeripheral::playAnimation()
+{
+    window->playMovie();
+}

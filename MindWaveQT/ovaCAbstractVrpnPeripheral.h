@@ -5,7 +5,7 @@ class CDeviceInfo;
 #include <list>
 #include <string>
 #include <map>
-
+#include "mainwindow.h"
 
 namespace OpenViBEVRDemos 
 {
@@ -31,6 +31,8 @@ namespace OpenViBEVRDemos
 		std::string m_sDeviceAddress;                   //!< The device address ([peripheral-name]@[hostname]).
 		CDeviceInfo* m_pDevice;                         //!< The VRPN Device
 
+        MainWindow *window;
+
 		/**
 		* \brief Default constructor.
 		*/
@@ -40,6 +42,9 @@ namespace OpenViBEVRDemos
 		* \param deviceAddress The device address.
 		*/
 		CAbstractVrpnPeripheral(const std::string deviceAddress);
+
+        CAbstractVrpnPeripheral(MainWindow *w);
+
 		/**
 		* \brief Destructor.
 		*/
@@ -54,6 +59,10 @@ namespace OpenViBEVRDemos
 		* \brief Main loop.
 		*/
 		virtual void loop(void);
+
+        void print(QString string);
+
+        void playAnimation(void);
 			
 	};
 };

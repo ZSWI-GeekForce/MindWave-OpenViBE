@@ -25,7 +25,7 @@ int main(int argc, char *argv[])
     running = true;
     //cout << "Setting connection" << endl;
     w.print("Setting connection");
-    CAbstractVrpnPeripheral *conn = new CAbstractVrpnPeripheral();
+    CAbstractVrpnPeripheral *conn = new CAbstractVrpnPeripheral(&w);
     //cout << "Initializing connection" << endl;
     w.print("Initializing connection");
     (*conn).init();
@@ -42,7 +42,8 @@ int main(int argc, char *argv[])
 
     }
 */
-    conn->~CAbstractVrpnPeripheral();
+
+    //conn->~CAbstractVrpnPeripheral();
     return a.exec();
 /*
     Sleep(2000);
