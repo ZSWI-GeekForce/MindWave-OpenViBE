@@ -20,7 +20,7 @@
       <x>50</x>
       <y>0</y>
       <width>381</width>
-      <height>191</height>
+      <height>231</height>
      </rect>
     </property>
     <property name="accessibleName">
@@ -37,7 +37,7 @@
     <property name="geometry">
      <rect>
       <x>200</x>
-      <y>240</y>
+      <y>250</y>
       <width>91</width>
       <height>41</height>
      </rect>
@@ -72,7 +72,15 @@
     </property>
     <addaction name="actionKonec"/>
    </widget>
+   <widget class="QMenu" name="menuVRPN">
+    <property name="title">
+     <string>VRPN</string>
+    </property>
+    <addaction name="actionStart_communication"/>
+    <addaction name="actionClose_comunication"/>
+   </widget>
    <addaction name="menuMenu"/>
+   <addaction name="menuVRPN"/>
   </widget>
   <widget class="QStatusBar" name="statusBar"/>
   <action name="actionKonec">
@@ -87,6 +95,16 @@
    </property>
    <property name="menuRole">
     <enum>QAction::ApplicationSpecificRole</enum>
+   </property>
+  </action>
+  <action name="actionClose_comunication">
+   <property name="text">
+    <string>Close communication</string>
+   </property>
+  </action>
+  <action name="actionStart_communication">
+   <property name="text">
+    <string>Start communication</string>
    </property>
   </action>
  </widget>

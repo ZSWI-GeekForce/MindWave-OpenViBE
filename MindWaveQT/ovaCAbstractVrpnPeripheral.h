@@ -5,7 +5,8 @@ class CDeviceInfo;
 #include <list>
 #include <string>
 #include <map>
-#include "mainwindow.h"
+#include <QObject>
+//#include "mainwindow.h"
 
 namespace OpenViBEVRDemos 
 {
@@ -18,8 +19,17 @@ namespace OpenViBEVRDemos
 	 * \details The CAbstractVrpnPeripheral handles the connection to at most one Analog Server and one Button Server.
 	 * 
 	 */
-	class CAbstractVrpnPeripheral
+    class CAbstractVrpnPeripheral : public QObject
 	{
+        Q_OBJECT
+
+    public slots:
+        void doWork(void);
+
+    signals:
+        void resultReady(void);
+        void sendMessage(const char *message);
+
 	public:
 
 		std::list < std::pair < int, int > > m_vButton; //!< list (chronological) of pairs (button_id, button_state).
@@ -31,7 +41,7 @@ namespace OpenViBEVRDemos
 		std::string m_sDeviceAddress;                   //!< The device address ([peripheral-name]@[hostname]).
 		CDeviceInfo* m_pDevice;                         //!< The VRPN Device
 
-        MainWindow *window;
+       // MainWindow *window;
 
 		/**
 		* \brief Default constructor.
@@ -43,7 +53,7 @@ namespace OpenViBEVRDemos
 		*/
 		CAbstractVrpnPeripheral(const std::string deviceAddress);
 
-        CAbstractVrpnPeripheral(MainWindow *w);
+       // CAbstractVrpnPeripheral(MainWindow *w);
 
 		/**
 		* \brief Destructor.
