@@ -4,6 +4,7 @@
 #include <QMainWindow>
 #include <QMovie>
 #include <QThread>
+#include <QCloseEvent>
 
 namespace Ui {
 class MainWindow;
@@ -21,6 +22,8 @@ public:
     void playMovie();
     void playMovie(QMovie *movie);
     void print(QString string);
+    bool running;
+    virtual void MainWindow::closeEvent(QCloseEvent *e);
 
 private slots:
     void on_pushButton_released();

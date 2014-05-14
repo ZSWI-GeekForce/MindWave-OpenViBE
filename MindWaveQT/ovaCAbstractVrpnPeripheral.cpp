@@ -22,9 +22,8 @@ namespace
 		std::pair < int, int > l_oVrpnButtonState;
 		l_oVrpnButtonState.first=b.button;
         l_oVrpnButtonState.second=b.state;
-        l_pAbstractVrpnPeripheral->blink_count++;
-        std::cout << l_pAbstractVrpnPeripheral->blink_count << ". mrk" << std::endl;
-        l_pAbstractVrpnPeripheral->playAnimation();
+        std::cout << "mrk" << std::endl;
+        ((MainWindow*)(l_pAbstractVrpnPeripheral->parent()))->doWork();
 		l_pAbstractVrpnPeripheral->m_vButton.push_back(l_oVrpnButtonState);
 	}
 

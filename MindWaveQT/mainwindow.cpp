@@ -11,6 +11,9 @@ MainWindow::MainWindow(QWidget *parent) :
     smile1 = QPixmap("../smile1.png");
     animation = new QMovie("../smile.gif");
     ui->label->setText("picture");
+    if(!animation->isValid()) ui->label->setText("None animation");
+    else  ui->label->setMovie(animation);
+
 }
 
 MainWindow::~MainWindow()
@@ -36,7 +39,10 @@ void MainWindow::drawPicture(QPixmap picture){
 }
 
 void MainWindow::playMovie(){
-    playMovie(animation);
+    //playMovie(animation);
+
+        animation->start();
+
 }
 
 void MainWindow::playMovie(QMovie *movie){
@@ -52,7 +58,13 @@ void MainWindow::doWork(){
     playMovie();
 }
 
+void MainWindow::closeEvent(QCloseEvent *e){
+    running = false;
+    e->accept();
+}
+
 void MainWindow::on_pushButton_released()
 {
-    playMovie(this->animation);
+    playMovie();
+    //playMovie(this->animation);
 }
