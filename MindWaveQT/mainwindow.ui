@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>514</width>
-    <height>482</height>
+    <width>463</width>
+    <height>359</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -33,36 +33,13 @@
      <set>Qt::AlignHCenter|Qt::AlignTop</set>
     </property>
    </widget>
-   <widget class="QPushButton" name="pushButton">
-    <property name="geometry">
-     <rect>
-      <x>200</x>
-      <y>250</y>
-      <width>91</width>
-      <height>41</height>
-     </rect>
-    </property>
-    <property name="text">
-     <string>MRK</string>
-    </property>
-   </widget>
-   <widget class="QTextBrowser" name="textBrowser">
-    <property name="geometry">
-     <rect>
-      <x>20</x>
-      <y>320</y>
-      <width>481</width>
-      <height>121</height>
-     </rect>
-    </property>
-   </widget>
   </widget>
   <widget class="QMenuBar" name="menuBar">
    <property name="geometry">
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>514</width>
+     <width>463</width>
      <height>21</height>
     </rect>
    </property>
@@ -72,15 +49,7 @@
     </property>
     <addaction name="actionKonec"/>
    </widget>
-   <widget class="QMenu" name="menuVRPN">
-    <property name="title">
-     <string>VRPN</string>
-    </property>
-    <addaction name="actionStart_communication"/>
-    <addaction name="actionClose_comunication"/>
-   </widget>
    <addaction name="menuMenu"/>
-   <addaction name="menuVRPN"/>
   </widget>
   <widget class="QStatusBar" name="statusBar"/>
   <action name="actionKonec">
@@ -88,7 +57,7 @@
     <bool>false</bool>
    </property>
    <property name="text">
-    <string>Konec</string>
+    <string>Ukončit</string>
    </property>
    <property name="shortcut">
     <string>Ctrl+Q</string>

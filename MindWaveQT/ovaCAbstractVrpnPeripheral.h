@@ -6,7 +6,7 @@ class CDeviceInfo;
 #include <string>
 #include <map>
 #include <QObject>
-#include "mainwindow.h"
+//#include "mainwindow.h"
 
 namespace OpenViBEVRDemos 
 {
@@ -23,19 +23,22 @@ namespace OpenViBEVRDemos
 	{
         Q_OBJECT
 
-    signals:
-            void makeItHappen(void);
+    public slots:
+        void doWork(void);
 
-    public:
+    signals:
+        void resultReady(void);
+
+	public:
 
 		std::list < std::pair < int, int > > m_vButton; //!< list (chronological) of pairs (button_id, button_state).
-        std::list < std::list < double > > m_vAnalog;   //!< list (chronological) of list (channels) of values.
+		std::list < std::list < double > > m_vAnalog;   //!< list (chronological) of list (channels) of values.
+		double m_dAnalogScale;                          //!< Scalar applied to any value read on the Analog server.
+		double m_dAnalogOffset;                         //!< Offset applied to any value read on the Analog server.
 		int blink_count;
-
 		std::string m_sDeviceAddress;                   //!< The device address ([peripheral-name]@[hostname]).
 		CDeviceInfo* m_pDevice;                         //!< The VRPN Device
 
-        MainWindow *window;
 
 		/**
 		* \brief Default constructor.
@@ -47,7 +50,7 @@ namespace OpenViBEVRDemos
 		*/
 		CAbstractVrpnPeripheral(const std::string deviceAddress);
 
-        CAbstractVrpnPeripheral(MainWindow *w);
+       // CAbstractVrpnPeripheral(MainWindow *w);
 
 		/**
 		* \brief Destructor.
@@ -62,13 +65,11 @@ namespace OpenViBEVRDemos
 		/**
 		* \brief Main loop.
 		*/
-		virtual void loop(void);
-
-        void print(QString string);
+        virtual void loop(void);
 
         void playAnimation(void);
 			
 	};
-}
+};
 
 #endif

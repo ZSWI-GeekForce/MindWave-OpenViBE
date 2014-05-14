@@ -5,6 +5,7 @@
 #include <QMovie>
 #include <QThread>
 #include <QCloseEvent>
+#include "ovaCAbstractVrpnPeripheral.h"
 
 namespace Ui {
 class MainWindow;
@@ -19,23 +20,20 @@ public:
     ~MainWindow();
     void setLabelText(QString string);
     void drawPicture(QPixmap picture);
-    void playMovie();
-    void playMovie(QMovie *movie);
-    void print(QString string);
-    bool running;
-    virtual void MainWindow::closeEvent(QCloseEvent *e);
-
-private slots:
-    void on_pushButton_released();
+    void playMovie(void);
 
 public slots:
-    void doWork();
+    void handleResults();
+
+signals:
+    void operate();
 
 private:
     Ui::MainWindow *ui;
-    QPixmap smile1,smile2;
+    QPixmap smile;
     QMovie *animation;
-
+    QThread workerThread;
+    virtual void closeEvent(QCloseEvent *e);
 };
 
 
