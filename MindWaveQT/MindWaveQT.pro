@@ -35,6 +35,7 @@ FORMS    += \
     mainwindow.ui
 
 QMAKE_LFLAGS += /INCREMENTAL:NO
+QMAKE_LFLAGS += -static-libgcc
 
 win32:CONFIG(release, debug|release): LIBS += $$PWD/vrpn.lib
 else:win32:CONFIG(debug, debug|release): LIBS += $$PWD/vrpn.lib

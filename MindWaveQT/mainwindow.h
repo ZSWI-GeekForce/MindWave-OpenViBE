@@ -33,6 +33,7 @@ private:
     QPixmap smile;
     QMovie *animation;
     QThread workerThread;
+    bool animSet;
     virtual void closeEvent(QCloseEvent *e);
 };
 

@@ -8,16 +8,18 @@ MainWindow::MainWindow(QWidget *parent) :
     ui(new Ui::MainWindow)
 {
     ui->setupUi(this);
+    setFixedSize(width(), height());
+    smile = QPixmap("Smajlik.gif");
 
-    smile = QPixmap("../smile1.png");
+    animation = new QMovie("Smajlik.gif");
+    animSet = false;
     if(!smile.isNull()){
+        smile = smile.scaled(ui->label->size(), Qt::KeepAspectRatio, Qt::SmoothTransformation);
         ui->label->setPixmap(smile);
     }
-    animation = new QMovie("../smile.gif");
+
     if(animation->isValid()){
-        //ui->label->resize(animation->scaledSize());
-        ui->label->setMovie(animation);
-        //animation->start();
+        animation->setScaledSize(smile.size());
     }
     else{
         ui->label->setText("None animation");
@@ -52,6 +54,10 @@ void MainWindow::drawPicture(QPixmap picture){
 
 void MainWindow::playMovie()
 {
+    if(!animSet){
+       ui->label->setMovie(animation);
+       animSet = true;
+    }
     animation->start();
 }
 

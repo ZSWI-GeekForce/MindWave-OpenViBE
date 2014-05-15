@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>463</width>
-    <height>359</height>
+    <width>479</width>
+    <height>382</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -17,20 +17,20 @@
    <widget class="QLabel" name="label">
     <property name="geometry">
      <rect>
-      <x>50</x>
+      <x>0</x>
       <y>0</y>
-      <width>381</width>
-      <height>231</height>
+      <width>481</width>
+      <height>361</height>
      </rect>
     </property>
     <property name="accessibleName">
      <string>textLabel</string>
     </property>
     <property name="text">
-     <string>TextLabel</string>
+     <string>animation</string>
     </property>
     <property name="alignment">
-     <set>Qt::AlignHCenter|Qt::AlignTop</set>
+     <set>Qt::AlignCenter</set>
     </property>
    </widget>
   </widget>
@@ -39,7 +39,7 @@
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>463</width>
+     <width>479</width>
      <height>21</height>
     </rect>
    </property>
@@ -51,7 +51,6 @@
    </widget>
    <addaction name="menuMenu"/>
   </widget>
-  <widget class="QStatusBar" name="statusBar"/>
   <action name="actionKonec">
    <property name="checkable">
     <bool>false</bool>
